@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --font-family-sans-serif: "Poppins", sans-serif;
+    --primary: #008F9F;
+    --primary-dark: #0e6872;
+    --primary-light: #35b5c2;
+    --dark-neutral: #495057;
+    --light-neutral: #ced4da;
+    --neutral: #a4a7ab;
+}
+
+html{
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.p-0175rem{
+    padding-top: 0.175rem;
+    padding-bottom: 0.175rem;
+}
+
+.navbar{
+    filter: drop-shadow(0 0.15rem 0.175rem gray);
+}
+
+.color-neutral{
+    color: #a4a7ab!important;
+}
+
+.color-darkneutral{
+    color: var(--dark-neutral)!important;
+}
+
+.fill-darkneutral{
+    fill: var(--dark-neutral);
+}
+
+.color-lightneutral{
+    color: #ced4da;
+}
+
+.color-white{
+    color: #fff;
+}
+
+.ul-nostyle{
+    list-style-type: none;
+    align-items: center;
+}
+
+.ul-nostyle li{
+    margin-right: 0.9rem;
+    height: fit-content;
+}
+
+.ul-nostyle li.active{
+    border-bottom: 4px solid var(--primary);
+    margin-top: 4px;
+}
+
+.ul-nostyle li a{
+    color: var(--dark-neutral);
+}
+
+.ul-nostyle li a:hover{
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.mycard{
+    padding: 0.8rem;
+}
+
+.mycard .card{
+    min-height: 7em;
+    filter: drop-shadow(0 0 0.5rem var(--light-neutral));
+    border: none;
+}
+
+.img-4x3{
+    overflow: hidden;
+    position: relative;
+    padding-top: 55%;
+    margin: 0 20px;
+    margin-top: 1rem;
+    filter: drop-shadow(0 0 0.5rem var(--light-neutral));
+}
+
+.img-4x3 img{
+    position: absolute;
+    height: 100%;
+    top: -50%;
+    bottom: -50%;
+    left: -50%;
+    right: -50%;
+    margin: auto;
+}
+
+.img-propotional{
+    height: 100%;
+    top: -50%;
+    bottom: -50%;
+    left: -50%;
+    right: -50%;
+    margin: auto;
+}
+
+.card-title-text{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pesan-btn{
+    border-radius: 23px;
+    font-size: 12px;
+}
+
+.navbar{
+    padding: 0.7rem 2rem;
+    z-index: 3;
+}
+
+.ico-oncard{
+    font-size: 1.3rem;
+    color: var(--neutral);
+}
+
+.container-w-sidebar{
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    display: block;
+    height: calc(100% - 62.594px);
+}
+
+.sidebar a{
+    font-size: 1rem;
+    border: none;
+    color: var(--neutral);
+}
+
+.sidebar a:last-child{
+    color: #fff;
+    background-color: #008F9F;
+    border-color: #008F9F;
+}
+
+.sidebar a[active] {
+    color: #212529;
+    background-color: #e9ecef;
+}
+
+.sidebar{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    border-right: 1pt solid var(--neutral);
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.content-f-sidebar{
+    margin-left: 300px;
+    width: calc(100% - 300px);
+    overflow: hidden;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.bc-admin{
+    border: 1pt solid var(--neutral);
+    background-color: var(--light-neutral);
+    padding: 0.15rem 0.7rem;
+    background-color: #ffffff;
+    border-radius: 0;
+    width: fit-content;
+    font-size: 0.75rem;
+}
+
+.font-uc{
+    text-transform: uppercase;
+}
+
+.uk-btn-large{
+    border-radius: 0;
+    min-height: 40px;
+    padding: 0 25px;
+    line-height: 40px;
+    font-size: 0.8rem;
+}
+
+.input-te{
+    height: 40px;
+    padding: 8px 0;
+    font-size: 16px;
+    vertical-align: middle;
+    border: none;
+    padding-left: 30px !important;
+}
+
+.ab-ico{
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    margin-top: -7px;
+    font-size: 14px;
+    color: #6d6f79;
+    text-align: center;
+    pointer-events: none;
+}
+
+.w-500px{
+    width: 500px;
+}
+
+.modalSide-container{
+    background-color: rgba(0,0,0,0.5);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    z-index: 3;
+}
+
+.modalSide{
+    background-color: #fff;
+}
+
+.fw-600{
+    font-weight: 600;
+}
+
+.fw-300{
+    font-weight: 300;
+}
+
+#header{
+    background: url('/static/img/background-green.png') no-repeat center top;
+    background-size: 100% auto;
+    padding-top: 10.5rem;
+}
+
+#footer{
+    background: url('/static/img/background-grey.png') no-repeat center bottom;
+    background-size: 100% auto;
+    padding-top: 10.5rem;
+}
+
+.p-h-32px{
+    padding: 0 32px;
+}
+
+#siwalan-feature{
+    padding-left: 60px;
+}
+
+#siwalan-feature li{
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+#siwalan-feature li h4{
+    line-height: 1.9;
+}
+
+#siwalan-feature li::before{
+    content: '';
+    display: block;
+    height: 40px;
+    position: absolute;
+    width: 40px;
+    background-size: cover;
+    background-image: url(/static/img/point.png);
+    left: 0;
+}
+
+.card-display-landing{
+    background-color: var(--primary-dark)!important;
+    text-align: center;
+}
+
+.card-footer-btn{
+    border: none;
+    background-color: transparent;
+}
+
+.card-footer-btn button:last-child {
+    height: auto!important;
+    padding: 7px;
+    border-radius: 30px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.card-footer-btn button:hover {
+    color: #fff;
+    background-color: var(--primary)!important;
+    border-color: var(--primary)!important;
+}
+
+.img-display-landing img{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: -120%;
+    margin: auto;
+}
+
+@media only screen and (min-width: 768px){
+    .card-list{
+        margin-left: calc( -0.8rem - 15px );
+        margin-right: calc( -0.8rem - 15px );
+    }
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+@keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+.rotating {
+    -webkit-animation: rotating 4s linear infinite;
+    -moz-animation: rotating 4s linear infinite;
+    -ms-animation: rotating 4s linear infinite;
+    -o-animation: rotating 4s linear infinite;
+    animation: rotating 4s linear infinite;
+  }

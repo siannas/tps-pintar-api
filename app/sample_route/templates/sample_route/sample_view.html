@@ -1,0 +1,15 @@
+{% extends "default.html" %}
+
+{% block content %}
+
+<div class="judul-container">
+    <h5 class="judul-txt">Sample Aja</h5>
+</div>
+{% if error_message %}
+    <div class="alert alert-danger" role="alert" id="error-msg">
+        {{ error_message }}
+    </div>
+{% endif %}
+
+<h1>ini sample</h1>
+{% endblock %}
