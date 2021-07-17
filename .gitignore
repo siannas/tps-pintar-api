@@ -27,3 +27,8 @@ venv/
 
 *.pyc
 *.pyo
+
+#photos
+app/photos/predictFace/
+app/photos/trainedFace/
+app/photos/uploadFace/

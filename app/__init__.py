@@ -7,7 +7,7 @@ app.config.from_object(Config)
 
 CORS(app)
 
-from app.sample_route.sample_blueprint import sample_blueprint
-app.register_blueprint(sample_blueprint, url_prefix='/sample_route')
+from app.face_blueprint import face_blueprint
+app.register_blueprint(face_blueprint, url_prefix='/fr')
 
 from app import routes
