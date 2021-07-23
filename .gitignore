@@ -32,3 +32,4 @@ venv/
 app/photos/predictFace/
 app/photos/trainedFace/
 app/photos/uploadFace/
+app/photos/model/
