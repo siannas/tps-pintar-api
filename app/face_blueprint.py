@@ -23,8 +23,8 @@ ModelmobileNet = createMobileNet()
 def predictById():
     nid = request.form['id']
     name = request.form['image_name']
-    nmFile = 'app\\photos\\predictFace\\%s\\%s'%(nid, name)
-    model_ = loadModel('app/photos/model/'+str(nid)+'.pkl')
+    nmFile = Config.STORAGE_PATH+'predictFace\\%s\\%s'%(nid, name)
+    model_ = loadModel(Config.STORAGE_PATH+'model/'+str(nid)+'.pkl')
     
     t,r=prediksiImg(nmFile,nid,model_, ModelmobileNet, haar_face_cascade)
     elapsed = time.time() - t
@@ -47,7 +47,7 @@ def trainById():
     nrp_list_ = []
     ftr_list_ = []
     nrp=nid
-    path = "app\\photos\\uploadFace\\" + nrp
+    path = Config.STORAGE_PATH+"uploadFace\\" + nrp
 
     ## ambil semua foto dari folder nrp tersebut ##
     for imgFile in os.listdir(path):
@@ -87,7 +87,7 @@ def trainById():
         model_ = LogisticRegression(solver='lbfgs',n_jobs=-1, multi_class='auto',tol=0.8)
         model_.fit(ftr_np,nrp_np)
         # model = modelLR
-        with open('app/photos/model/'+str(nrp)+'.pkl', 'wb') as f:
+        with open(Config.STORAGE_PATH+'model/'+str(nrp)+'.pkl', 'wb') as f:
             pickle.dump(model_, f)
         elapsed = time.time() - t
         return "Save Model succeded Time Elapsed = %g"%elapsed

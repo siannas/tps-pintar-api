@@ -8,6 +8,6 @@ app.config.from_object(Config)
 CORS(app)
 
 from app.face_blueprint import face_blueprint
-app.register_blueprint(face_blueprint, url_prefix='/fr')
+app.register_blueprint(face_blueprint, url_prefix='/recognition')
 
 from app import routes

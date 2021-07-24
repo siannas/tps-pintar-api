@@ -4,7 +4,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from app import app 
+from app import app as application
 
 #def application(environ, start_response):
 #    start_response('200 OK', [('Content-Type', 'text/plain')])
