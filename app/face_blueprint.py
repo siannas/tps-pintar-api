@@ -23,7 +23,7 @@ ModelmobileNet = createMobileNet()
 def predictById():
     nid = request.form['id']
     name = request.form['image_name']
-    nmFile = Config.STORAGE_PATH+'predictFace/%s/%s'%(nid, name)
+    nmFile = Config.STORAGE_PATH+'predict/%s/%s'%(nid, name)
     model_ = loadModel(Config.STORAGE_PATH+'model/'+str(nid)+'.pkl')
     
     t,r=prediksiImg(nmFile,nid,model_, ModelmobileNet, haar_face_cascade)
@@ -47,7 +47,7 @@ def trainById():
     nrp_list_ = []
     ftr_list_ = []
     nrp=nid
-    path = Config.STORAGE_PATH+"uploadFace/" + nrp
+    path = Config.STORAGE_PATH+"upload/" + nrp
 
     ## ambil semua foto dari folder nrp tersebut ##
     for imgFile in os.listdir(path):
