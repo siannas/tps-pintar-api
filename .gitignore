@@ -28,9 +28,9 @@ venv/
 *.pyo
 
 #photos
-app/photos/predictFace/
+app/photos/predict/
 app/photos/trainedFace/
-app/photos/uploadFace/
+app/photos/upload/
 app/photos/model/
 
 .vscode/

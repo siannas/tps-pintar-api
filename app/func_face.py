@@ -53,17 +53,20 @@ def detect_faces(f_cascade, img, scaleFactor = 1.1,needGray=False):
 def prediksiImg(nmFile,nrp,model, ModelmobileNet, haar_face_cascade):
     t = time.time()
     img = cv2.imread(nmFile)
+    rejected = False
     if img is None:
-        return t,"REJECTED, not valid file , cant be predict"
+        rejected = "invalid_file"
+        return t,"REJECTED, not valid file , cant be predict",rejected
 
     ## SEPERTINYA TIDAK PERLU DIPREDIKSI WAJAH ATAU BUKAN ##
     img = cv2.resize(img, IMG_DIM)
     img = detect_faces(haar_face_cascade,img)
     if img is None:
+        rejected = "no_face"
         if nmFile.find('X__') > 0:
              nmFileNew = nmFile.replace('X__','NF__')
              os.system('move %s %s'%(nmFile,nmFileNew))
-        return t,"REJECTED, not face no remove, cant be predict"
+        return t,"REJECTED, not face no remove, cant be predict",rejected
 
     img = cv2.resize(img, IMG_DIM)
     img=img/255
@@ -89,10 +92,11 @@ def prediksiImg(nmFile,nrp,model, ModelmobileNet, haar_face_cascade):
     score = round(prob*100,2)
     nmFile = nmFile.replace('/','\\')
     if prob == -1:
+        rejected = "not_registered"
         if nmFile.find('X__') > 0:
              nmFileNew = nmFile.replace('X__','NR__')
              os.system('move %s %s'%(nmFile,nmFileNew))
-        return t,"REJECTED,ERR: Face data of " + nrp + " is currently not registered, no photos have been trained"
+        return t,"REJECTED,ERR: Face data of " + nrp + " is currently not registered, no photos have been trained", rejected
 
 
     if rank <= 5 and score > 60:
@@ -106,12 +110,13 @@ def prediksiImg(nmFile,nrp,model, ModelmobileNet, haar_face_cascade):
 
 
     else:
+        rejected = "low_score"
         result = "REJECTED,"
         if nmFile.find('X__') > 0:
              nmFileNew = nmFile.replace('X__','R__')
              os.system('move %s %s'%(nmFile,nmFileNew))
 
-    return t,"%s %s mobileNet score %g  rank %g" %(result,nrp,score,rank)
+    return t,"%s %s mobileNet score %g  rank %g" %(result,nrp,score,rank), rejected
 
 def checkDirectory(filename):
     if not os.path.exists(os.path.dirname(filename)):

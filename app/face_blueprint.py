@@ -7,8 +7,10 @@ import os,cv2
 import time
 import pickle
 import numpy as np
+import json
 
 from app.config import Config
+from app import app
 
 face_blueprint = Blueprint('face_blueprint', __name__,
     template_folder='templates',
@@ -26,9 +28,12 @@ def predictById():
     nmFile = Config.STORAGE_PATH+'predict/%s/%s'%(nid, name)
     model_ = loadModel(Config.STORAGE_PATH+'model/'+str(nid)+'.pkl')
     
-    t,r=prediksiImg(nmFile,nid,model_, ModelmobileNet, haar_face_cascade)
+    t,r,rejected=prediksiImg(nmFile,nid,model_, ModelmobileNet, haar_face_cascade)
     elapsed = time.time() - t
-    return "%s (Time Elapsed = %g)"%(r,elapsed)
+    if rejected:
+        return jsonify({'message':"%s (Time Elapsed = %g)"%(r,elapsed),'error':rejected}), 400
+    else:
+        return "%s (Time Elapsed = %g)"%(r,elapsed)
 
 @face_blueprint.route('/trainById', methods=['POST'])
 def trainById():
@@ -82,7 +87,7 @@ def trainById():
     # os.system('move %s %s'%(path,pathDEST))        
     
     if len(np.unique(nrp_np)) ==1:
-        return "Labels only one class, cant create model"
+        return jsonify({'message': "Labels only one class, cant create model" , 'error': "model_not_created"}), 400
     else:
         model_ = LogisticRegression(solver='lbfgs',n_jobs=-1, multi_class='auto',tol=0.8)
         model_.fit(ftr_np,nrp_np)
