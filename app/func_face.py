@@ -99,7 +99,7 @@ def prediksiImg(nmFile,nrp,model, ModelmobileNet, haar_face_cascade):
         return t,"REJECTED,ERR: Face data of " + nrp + " is currently not registered, no photos have been trained", rejected
 
 
-    if rank <= 5 and score > 60:
+    if rank <= 5 and score > 95:
         result = "ACCEPTED,"
         if nmFile.find('X__')>0:
              nmFileNew = nmFile.replace('X__','A__')
